@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <sidebar/>
+    <main-content :results="results" />
+    <!-- {{searchImage}} -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import sidebar from '@/components/sidebar.vue'
+import mainContent from '@/components/mainContent.vue'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    sidebar,
+    mainContent
+  },
+  props:{
+      searchImage: String
+  },
+  data(){
+    return{
+      results: [],
+    }
+  },
+  // methods:{
+  //   loadImage(){
+  //     axios.get('https://api.unsplash.com/search/photos?query=nature&client_id=RkUiv46QmqkuzRFjLJ7FhWdQOQiBLjYkYPO0GoVJ6tQ').then(response =>{
+  //       this.results = response.data.results
+  //       console.log(this.results)
+  //     })
+  //   },
+  //   findImage(){
+  //     axios.get('https://api.unsplash.com/search/photos?query=' +this.searchImage+'&client_id=RkUiv46QmqkuzRFjLJ7FhWdQOQiBLjYkYPO0GoVJ6tQ').then(response =>{
+  //       this.results = response.data.results
+  //       console.log(this.results)
+  //     })
+  //   }
+  // },
+  // created(){
+  //   this.loadImage()
+  // }
 }
 </script>
