@@ -4,7 +4,7 @@
         <div class="sidebar">
             <div class="sidebar-brand">
                 <div class="brand-flex">
-                    <img src="@/assets/img.png" width="40px" alt="">
+                    <h3><i class="fas fa-dice"></i> Bluecube</h3>
                 </div>
             </div>
             <div class="sidebar-main">
@@ -82,6 +82,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: 20px;
+        h3{
+            color: rgb(107,97,186);
+        }
     }
     &-main{
         ul{
@@ -152,7 +156,9 @@ header{
     .input-box{
         width: 80%;
         position: relative;
-
+        @media(max-width: 1124px){
+            display: none;
+        }
         input{
             width: 100%;
             height: 40px;

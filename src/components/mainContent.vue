@@ -21,7 +21,11 @@
             </header>
             <main>
                 <div class="page-header">
-                    <form action="">
+                    <form action="" @submit.prevent="findImage">
+                        <div class="input-box">
+                            <input type="text" placeholder="Find something" v-model="searchImage">
+                            <button>Search</button>
+                        </div>
                         <select name="" id="">
                             <option value="">World</option>
                         </select>
@@ -110,16 +114,46 @@ export default{
             min-height: calc(100vh - 70px);
             margin-top: 70px;
             .page-header{
-                display: flex;
                 margin-bottom: 20px;
+                
                 form{
                     width: 100%;
                     display: flex;
+                    .input-box{
+                        width: 100%;
+                        position: relative;
+                        display: none;
+                        @media(max-width: 1124px){
+                            display: block;
+                        }
+                        input{
+                            width: 100%;
+                            height: 40px;
+                            padding: 14px;
+                            outline: none;
+                            border: none;
+                            box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+                        }
+                        button{
+                            position: absolute;
+                            top: 5px;
+                            right: 5px;
+                            padding: 8px;
+                            border: none;
+                            outline: none;
+                            background:  rgb(107,97,186);
+                            color: #fff;
+                            border-radius: 3px;
+                        }
+                    }
                     select{
                         width: 100%;
                         padding: 10px;
                         border: none;
                         border-right: 1px solid #ccc;
+                        @media (max-width: 1124px){
+                            display: none;
+                        }
                     }
                 }
             }
@@ -131,11 +165,12 @@ export default{
                     grid-template-columns: repeat(4, 1fr);
                 }
                 @media (max-width: 600px){
-                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-columns: repeat(1, 1fr);
                 }
                 @media (min-width: 601px) and (max-width: 768px){
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
                 }
+                
                 .card{
                     height: 250px;
                     margin-bottom: 30px;
