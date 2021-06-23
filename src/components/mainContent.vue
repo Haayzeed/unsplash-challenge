@@ -26,28 +26,28 @@
                             <input type="text" placeholder="Find something" v-model="searchImage">
                             <button>Search</button>
                         </div>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">World</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Following</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Popular</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Post</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Gender</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Location</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Profession</option>
                         </select>
-                        <select name="" id="">
+                        <select name="">
                             <option value="">Community</option>
                         </select>
                     </form>
@@ -76,13 +76,11 @@ export default{
     loadImage(){
       axios.get('https://api.unsplash.com/search/photos?query=nature&client_id=RkUiv46QmqkuzRFjLJ7FhWdQOQiBLjYkYPO0GoVJ6tQ').then(response =>{
         this.results = response.data.results
-        console.log(this.results)
       })
     },
     findImage(){
       axios.get('https://api.unsplash.com/search/photos?query=' +this.searchImage+'&client_id=RkUiv46QmqkuzRFjLJ7FhWdQOQiBLjYkYPO0GoVJ6tQ').then(response =>{
         this.results = response.data.results
-        console.log(this.results)
       })
     }
   },
